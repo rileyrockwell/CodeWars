@@ -8,7 +8,6 @@ def solution(s):
     # determine if the length of 's' contains an odd or even number of characters
 
     if len(s) % 2 == 0:
-
+        pass
     elif len(s) % 2 == 1:
         pass
-
