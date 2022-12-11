@@ -30,7 +30,7 @@ class PaginationHelper:
     # this method should return -1 for page_index values that are out of range
     def page_item_count(self, page_index):
         ## if page_index is not in the valid range, return -1 ##
-        if page_index > (self.page_count()):
+        if page_index > (self.page_count() - 1):
             return -1
         elif page_index < 0:
             return -1
@@ -66,7 +66,7 @@ class PaginationHelper:
 
         # build the page_num_array
         for i in range(len(self.collection)):
-            page_num_array.append(i // 4)
+            page_num_array.append(i // self.items_per_page)
 
         # dictionary comprehension for reference
         dict_1 = {k: v for (k, v) in zip(array_values, page_num_array)}
@@ -76,28 +76,9 @@ class PaginationHelper:
 
 
 if __name__ == "__main__":
-    # create an instance of the class
-    print("Instance 1")
-    helper = PaginationHelper(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'], 4)
-
-    print(helper.page_index(0))
-    print(helper.page_index(3))
-    print(helper.page_index(4))
-    print(helper.page_index(7))
-    print(helper.page_index(8))
-    print(helper.page_index(9))
-    print(helper.page_index(10))
-    print(helper.page_index(-10))
-
-    print(helper.page_item_count(0))
-    print(helper.page_item_count(1))
-    print(helper.page_item_count(2))
-    print(helper.page_item_count(-1))
-    print(helper.page_item_count(3))
-
-    print("Instance 2")
     helper = PaginationHelper(['a', 'b', 'c', 'd', 'e', 'f'], 4)
 
+    '''
     print(helper.page_count())  # should == 2
     print(helper.item_count())  # should == 6
     print(helper.page_item_count(0))  # should == 4
@@ -112,3 +93,10 @@ if __name__ == "__main__":
 
     print(helper.page_item_count(4))
     print(helper.page_index(5))
+    '''
+    collection = range(1, 25)
+    helper = PaginationHelper(collection, 10)
+
+    assert helper.page_count() == 3, 'page_count is returning incorrect value.'
+    assert helper.page_index(23) == 2, 'page_index returned incorrect value'
+    assert helper.item_count() == 24, 'item_count returned incorrect value'
