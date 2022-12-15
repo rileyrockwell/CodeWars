@@ -18,7 +18,6 @@ def beeramid(bonus, price):
     return levels
 
 if __name__ == "__main__":
-
     print(beeramid(1500, 2))
     print(beeramid(5000, 3))
     print(beeramid(-1, 4))
