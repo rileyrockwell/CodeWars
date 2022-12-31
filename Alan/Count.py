@@ -1,0 +1,3 @@
+def count(elements):
+    pass
+

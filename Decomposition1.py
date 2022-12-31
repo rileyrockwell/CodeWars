@@ -53,9 +53,3 @@ if __name__ == "__main__":
     print(prime_list(factorial(7)))
     print(prime_list(factorial(8)))
     print(prime_list(factorial(9)))
-    '''
-    a = time.time()
-    print(decomp(12))
-    b = time.time()
-    print("Time to completion: ", round(b-a, 2))
-    '''

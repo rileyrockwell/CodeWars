@@ -26,6 +26,10 @@ def prime_list(n):
 def decomp(n):
     x = factorial(n)
 
+    # Alan: forget about calculating n!; focus on the factors of n!
+    # evaluate 'decomp' on individual factors of n!; 'merge' the respective results to determine
+    # the aggregate result.
+
     # find the prime factorization for x
     a = []
     y = x
@@ -48,9 +52,3 @@ def decomp(n):
 
 if __name__ == "__main__":
     
-    '''
-    a = time.time()
-    print(decomp(12))
-    b = time.time()
-    print("Time to completion: ", round(b-a, 2))
-    '''

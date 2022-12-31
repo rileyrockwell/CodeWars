@@ -6,4 +6,8 @@ class User(object):
         self.data_member_1 = data_member_1
         self.data_member_2 = data_member_2
 
+    def function_1(self):
+        pass
+
+if __name__ == "__main__":
     
